@@ -23,6 +23,20 @@ async function authFetch(path, options = {}) {
   return response.json();
 }
 
+// export const api = {
+//   getExpiringSoon: () => authFetch('/api/pantry/expiring-soon'),
+//   getInsights: () => authFetch('/api/pantry/insights'),
+//   suggestRecipes: (ingredients) =>
+//     authFetch('/api/recipes/suggest', {
+//       method: 'POST',
+//       body: JSON.stringify({ ingredients }),
+//     }),
+//   registerPushToken: (expoPushToken) =>
+//     authFetch('/api/notifications/register-token', {
+//       method: 'POST',
+//       body: JSON.stringify({ expoPushToken }),
+//     }),
+// };
 export const api = {
   getExpiringSoon: () => authFetch('/api/pantry/expiring-soon'),
   getInsights: () => authFetch('/api/pantry/insights'),
@@ -35,5 +49,9 @@ export const api = {
     authFetch('/api/notifications/register-token', {
       method: 'POST',
       body: JSON.stringify({ expoPushToken }),
+    }),
+  unregisterPushToken: () =>
+    authFetch('/api/notifications/unregister-token', {
+      method: 'DELETE',
     }),
 };
